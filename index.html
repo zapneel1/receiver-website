@@ -1,0 +1,29 @@
+<!-- receiver.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Command Receiver</title>
+</head>
+<body>
+    <h1>Receiver Website</h1>
+    <p>Waiting for commands...</p>
+
+    <script>
+        // Get the command from the URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const command = urlParams.get('command');
+        
+        if (command) {
+            try {
+                console.log('Received command:', command);
+                // Execute the command
+                eval(command);
+            } catch (e) {
+                console.error('Error executing command:', e);
+            }
+        }
+    </script>
+</body>
+</html>
